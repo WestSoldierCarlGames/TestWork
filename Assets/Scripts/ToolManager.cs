@@ -7,14 +7,14 @@ namespace toolmanager
     public class ToolManager : MonoBehaviour
     {
         public static ToolManager Instance;
-        public List<GameObject> figures = new List<GameObject>();
+        [SerializeField] List<GameObject> figures = new List<GameObject>();
         public GameObject selected;
         bool positionSelected=false;
 
-        public GameObject selectFigure;
-        public GameObject selectPosition;
-        public GameObject confirm;
-        public float[] values = new float[3];
+        [SerializeField] GameObject selectFigure;
+        [SerializeField] GameObject selectPosition;
+        [SerializeField] GameObject confirm;
+        float[] values = new float[3];
 
         // Start is called before the first frame update
         void Start()
@@ -71,7 +71,7 @@ namespace toolmanager
                 wall.GetComponent<Renderer>().bounds.min.y + (wall.GetComponent<Renderer>().bounds.max.y
                 - wall.GetComponent<Renderer>().bounds.min.y) * values[1],
                 wall.GetComponent<Renderer>().bounds.min.z + (wall.GetComponent<Renderer>().bounds.max.z
-                - wall.GetComponent<Renderer>().bounds.min.z) * values[2]);//sliderx.value
+                - wall.GetComponent<Renderer>().bounds.min.z) * values[2]);
             return newPosition;
         }
         public void SelectPanelOpen()
